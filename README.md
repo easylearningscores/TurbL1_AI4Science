@@ -119,7 +119,7 @@ If you find this repo useful, please cite our paper.
 ```
 ## ✉️ Contact
 
-If you have any questions or want to use the code, please contact [wuhao2022@mail.ustc.edu.cn](mailto:wuhao2022@mail.ustc.edu.cn).
+If you have any questions or want to use the code, please contact [wuhao2022@mail.ustc.edu.cn](mailto:wuhao2022@mail.ustc.edu.cn), [srq24@mails.tsinghua.edu.cn](mailto:srq24@mails.tsinghua.edu.cn).
 
 
 ##  📂 Acknowledgement
