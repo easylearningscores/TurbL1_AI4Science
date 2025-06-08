@@ -51,7 +51,7 @@ test_input_shape = (32, 1, 1, 64, 64)   # (B, T_input, C, H, W)
 ```
 ## 🔥 Get Started
 
-Core code: see [./Physics_Attention.py](https://github.com/thuml/Transolver/blob/main/Physics_Attention.py)
+- Core code: see [./turb_l1.py](https://github.com/easylearningscores/TurbL1_AI4Science/blob/main/model/turb_l1.py)
 
 
 ## 🏆 Results
