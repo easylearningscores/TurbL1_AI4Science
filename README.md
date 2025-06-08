@@ -64,9 +64,14 @@ test_input_shape = (32, 1, 1, 64, 64)   # (B, T_input, C, H, W)
   - Inference file: see [inference_Forced_Li.py](https://github.com/easylearningscores/TurbL1_AI4Science/blob/main/inference_Forced_Li.py)
   - Parameters setting: see [config_Forced_Li.yaml](https://github.com/easylearningscores/TurbL1_AI4Science/blob/main/config_Forced_Li.yaml)
 
-you can run using this command:
+you can run train code using this command:
 ```bash
 torchrun --nnodes=1 --nproc_per_node=8 train_McWilliams.py
+```
+
+you can run inference code using this command:
+```bash
+python inference_McWilliams.py
 ```
 ## 🏆 Results
 
