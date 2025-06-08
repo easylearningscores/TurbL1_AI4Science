@@ -55,7 +55,7 @@ test_input_shape = (32, 1, 1, 64, 64)   # (B, T_input, C, H, W)
 
 
 <p align="center">
-<img src="Figures/standard_benchmark.png" height = "300" alt="" align=center />
+<img src="Figures/standard_benchmark.png" height = "600" alt="" align=center />
 <br><br>
-<b>Table 1.</b> Results on six standard benchmarks.
+<b>Table 1.</b> Performance comparison on isotropic turbulence datasets.
 </p>
