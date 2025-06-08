@@ -6,7 +6,7 @@
 This repo is the official PyTorch implementation of Turb-L1.
 
 
-## 📑 Data
+## 📑 Datas
 | Dataset       | Task                                    | Geometry        | Link                                                         |  Original Data shape | 
 | ------------- | --------------------------------------- | --------------- | ------------------------------------------------------------ |------------------------------------------------------------
 | Decaying Isotropic Turbulence| Predict future fluid vorticity          | Regular Grid    | [[Hugging Face]](https://huggingface.co/datasets/scaomath/navier-stokes-dataset/blob/main/McWilliams2d_fp32_128x128_N1280_Re5000_T100.pt) | (1280, 100, 128, 128) |
@@ -49,4 +49,13 @@ val_input_shape = (32, 1, 1, 64, 64)    # (B, T_input, C, H, W)
 # Test DataLoader
 test_input_shape = (32, 1, 1, 64, 64)   # (B, T_input, C, H, W)
 ```
-  
+
+
+## 🏆 Results
+
+
+<p align="center">
+<img src="Figures/standard_benchmark.png" height = "300" alt="" align=center />
+<br><br>
+<b>Table 1.</b> Results on six standard benchmarks.
+</p>
