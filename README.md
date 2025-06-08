@@ -81,3 +81,11 @@ Trub-L1 achieves consistent state-of-the-art perfermance.
 <br><br>
 <b>Table 1.</b> Performance comparison on isotropic turbulence datasets.
 </p>
+
+
+
+<p align="center">
+   <img src='Figures/Results_figure1.png' width="100%">
+<br><br>
+<b>Figure 1.</b> Long-term prediction on 2D Decaying Isotropic Turbulence.
+</p>
