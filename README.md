@@ -53,7 +53,10 @@ test_input_shape = (32, 1, 1, 64, 64)   # (B, T_input, C, H, W)
 
 - Core code: see [./turb_l1.py](https://github.com/easylearningscores/TurbL1_AI4Science/blob/main/model/turb_l1.py)
 
-
+- Decaying Isotropic Turbulence Task:
+  - Train file: see [train_McWilliams.py](https://github.com/easylearningscores/TurbL1_AI4Science/blob/main/train_McWilliams.py)
+  - Inference file: see [inference_McWilliams.py](https://github.com/easylearningscores/TurbL1_AI4Science/blob/main/inference_McWilliams.py)
+  - Parameters setting: see [config_McWilliams.yaml](https://github.com/easylearningscores/TurbL1_AI4Science/blob/main/config_McWilliams.yaml)
 ## 🏆 Results
 
 
