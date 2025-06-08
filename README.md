@@ -57,6 +57,14 @@ test_input_shape = (32, 1, 1, 64, 64)   # (B, T_input, C, H, W)
   - Train file: see [train_McWilliams.py](https://github.com/easylearningscores/TurbL1_AI4Science/blob/main/train_McWilliams.py)
   - Inference file: see [inference_McWilliams.py](https://github.com/easylearningscores/TurbL1_AI4Science/blob/main/inference_McWilliams.py)
   - Parameters setting: see [config_McWilliams.yaml](https://github.com/easylearningscores/TurbL1_AI4Science/blob/main/config_McWilliams.yaml)
+
+
+- Forced Isotropic Turbulence Task:
+  - Train file: see [train_Forced_Li.py](https://github.com/easylearningscores/TurbL1_AI4Science/blob/main/train_Forced_Li.py)
+  - Inference file: see [inference_Forced_Li.py](https://github.com/easylearningscores/TurbL1_AI4Science/blob/main/inference_Forced_Li.py)
+  - Parameters setting: see [config_Forced_Li.yaml](https://github.com/easylearningscores/TurbL1_AI4Science/blob/main/config_Forced_Li.yaml)
+ 
+
 ## 🏆 Results
 
 
