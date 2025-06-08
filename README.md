@@ -83,9 +83,18 @@ Trub-L1 achieves consistent state-of-the-art perfermance.
 </p>
 
 
-
+## 🏆 Showcase
 <p align="center">
    <img src='Figures/Results_figure1.png' width="100%">
 <br><br>
 <b>Figure 1.</b> Long-term prediction on 2D Decaying Isotropic Turbulence.
 </p>
+
+## 🏆 Training Dynamics
+<p align="center">
+   <img src='Figures/Results_figure2.png' width="100%">
+<br><br>
+<b>Figure 2.</b> Evolution of spectral error and visual prediction improvement for Turb-L1 during training.
+</p>
+
+
