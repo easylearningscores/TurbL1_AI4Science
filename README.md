@@ -97,4 +97,29 @@ Trub-L1 achieves consistent state-of-the-art perfermance.
 <b>Figure 2.</b> Evolution of spectral error and visual prediction improvement for Turb-L1 during training.
 </p>
 
+## 🤗 Citation
+
+If you find this repo useful, please cite our paper. 
+
+```
+@article{wu2025turb,
+  title={Turb-L1: Achieving Long-term Turbulence Tracing By Tackling Spectral Bias},
+  author={Wu, Hao and Gao, Yuan and Shu, Ruiqi and Han, Zean and Xu, Fan and Zhu, Zhihong and Wen, Qingsong and Wu, Xian and Wang, Kun and Huang, Xiaomeng},
+  journal={arXiv preprint arXiv:2505.19038},
+  year={2025}
+}
+```
+## ✉️ Contact
+
+If you have any questions or want to use the code, please contact [wuhao2022@mail.ustc.edu.cn](mailto:wuhao2022@mail.ustc.edu.cn).
+
+
+##  📂 Acknowledgement
+
+We appreciate the following github repos a lot for their valuable code base or datasets:
+
+https://github.com/scaomath/torch-cfd
+
+https://github.com/raj-brown/fourier_neural_operator
+
 
