@@ -2,3 +2,5 @@
 <p align="center" width="100%">
   <img src='Figures/nips_t1.png' width="100%">
 </p>
+
+This repo is the official PyTorch implementation of Turb-L1.
