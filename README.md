@@ -5,6 +5,13 @@
 
 This repo is the official PyTorch implementation of Turb-L1.
 
+<p align="left">
+<a href="https://arxiv.org/html/2505.19038v1" alt="arXiv">
+    <img src="https://img.shields.io/badge/arXiv-2306.11249-b31b1b.svg?style=flat" /></a>
+<a href="https://github.com/easylearningscores/Triton_AI4Earth/blob/main/LICENSE" alt="license">
+    <img src="https://img.shields.io/badge/license-Apache--2.0-%23002FA7" /></a>
+</p>
+
 
 ## 📑 Datas
 | Dataset       | Geometry        | Link                                                         |  Original Data shape | 
