@@ -49,6 +49,9 @@ val_input_shape = (32, 1, 1, 64, 64)    # (B, T_input, C, H, W)
 # Test DataLoader
 test_input_shape = (32, 1, 1, 64, 64)   # (B, T_input, C, H, W)
 ```
+## 🔥 Get Started
+
+Core code: see [./Physics_Attention.py](https://github.com/thuml/Transolver/blob/main/Physics_Attention.py)
 
 
 ## 🏆 Results
