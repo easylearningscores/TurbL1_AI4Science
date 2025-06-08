@@ -75,7 +75,7 @@ python inference_McWilliams.py
 ```
 ## 🏆 Results
 
-
+Trub-L1 achieves consistent state-of-the-art perfermance.
 <p align="center">
    <img src='Figures/standard_benchmark.png' width="100%">
 <br><br>
