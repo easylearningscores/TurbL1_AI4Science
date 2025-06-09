@@ -38,7 +38,7 @@ Here's a brief description of the datasets:
 - Variable: Vorticity (single variable)
 
 
-The expected output dimensions of the dataloader are as follows:
+The expected output dimensions of the dataloader are as follows (Mode details can be found in [dataloader_McWilliams.py](https://github.com/easylearningscores/TurbL1_AI4Science/blob/main/dataloader_McWilliams.py)):
 ```bash
 # --- Testing DataLoader Output ---
 
