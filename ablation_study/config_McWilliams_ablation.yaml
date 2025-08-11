@@ -1,0 +1,159 @@
+selected_model: 'LowFrequencyOnlyTurbL1'
+
+models:  
+
+      
+  TurbL1:
+    parameters:
+      shape_in: [1, 1, 128, 128] # T C H W
+      spatial_hidden_dim: 128
+      output_channels: 1
+      temporal_hidden_dim: 256
+      num_spatial_layers: 4
+      num_temporal_layers: 8
+
+  TurbL1_wo_HDS:
+    parameters:
+      shape_in: [1, 1, 128, 128] # T C H W
+      spatial_hidden_dim: 128
+      output_channels: 1
+      temporal_hidden_dim: 256
+      num_spatial_layers: 4
+      num_temporal_layers: 8
+
+  TurbL1_wo_MG:
+    parameters:
+      shape_in: [1, 1, 128, 128] # T C H W
+      spatial_hidden_dim: 128
+      output_channels: 1
+      temporal_hidden_dim: 256
+      num_spatial_layers: 4
+      num_temporal_layers: 8
+
+  HighFrequencyOnlyTurbL1:
+    parameters:
+      shape_in: [1, 1, 128, 128] # T C H W
+      spatial_hidden_dim: 128
+      output_channels: 1
+      temporal_hidden_dim: 256
+      num_spatial_layers: 4
+      num_temporal_layers: 8
+
+  LowFrequencyOnlyTurbL1:
+    parameters:
+      shape_in: [1, 1, 128, 128] # T C H W
+      spatial_hidden_dim: 128
+      output_channels: 1
+      temporal_hidden_dim: 256
+      num_spatial_layers: 4
+      num_temporal_layers: 8
+      
+trainings:
+  TurbL1:
+    batch_size: 20
+    num_epochs: 500
+    learning_rate: 0.001
+    seed: 42
+    parallel_method: 'DistributedDataParallel'
+
+  TurbL1_wo_HDS:
+    batch_size: 20
+    num_epochs: 500
+    learning_rate: 0.001
+    seed: 42
+    parallel_method: 'DistributedDataParallel'
+
+  TurbL1_wo_MG:
+    batch_size: 20
+    num_epochs: 500
+    learning_rate: 0.001
+    seed: 42
+    parallel_method: 'DistributedDataParallel'
+
+  HighFrequencyOnlyTurbL1:
+    batch_size: 20
+    num_epochs: 500
+    learning_rate: 0.001
+    seed: 42
+    parallel_method: 'DistributedDataParallel'
+
+  LowFrequencyOnlyTurbL1:
+    batch_size: 20
+    num_epochs: 500
+    learning_rate: 0.001
+    seed: 42
+    parallel_method: 'DistributedDataParallel'
+
+datas:
+  TurbL1:
+    input_length: 1
+    target_length: 1
+    variables_input: [0]
+    variables_output: [0]
+    downsample_factor: 1
+    data_path: '/jizhicfs/easyluwu/ocean_project/NPJ_baselines/Exp_6_NS/dataset/McWilliams2d_fp32_128x128_N1280_Re5000_T100.pt'
+
+  TurbL1_wo_HDS:
+    input_length: 1
+    target_length: 1
+    variables_input: [0]
+    variables_output: [0]
+    downsample_factor: 1
+    data_path: '/jizhicfs/easyluwu/ocean_project/NPJ_baselines/Exp_6_NS/dataset/McWilliams2d_fp32_128x128_N1280_Re5000_T100.pt'
+
+  TurbL1_wo_MG:
+    input_length: 1
+    target_length: 1
+    variables_input: [0]
+    variables_output: [0]
+    downsample_factor: 1
+    data_path: '/jizhicfs/easyluwu/ocean_project/NPJ_baselines/Exp_6_NS/dataset/McWilliams2d_fp32_128x128_N1280_Re5000_T100.pt'
+
+  HighFrequencyOnlyTurbL1:
+    input_length: 1
+    target_length: 1
+    variables_input: [0]
+    variables_output: [0]
+    downsample_factor: 1
+    data_path: '/jizhicfs/easyluwu/ocean_project/NPJ_baselines/Exp_6_NS/dataset/McWilliams2d_fp32_128x128_N1280_Re5000_T100.pt'
+
+  LowFrequencyOnlyTurbL1:
+    input_length: 1
+    target_length: 1
+    variables_input: [0]
+    variables_output: [0]
+    downsample_factor: 1
+    data_path: '/jizhicfs/easyluwu/ocean_project/NPJ_baselines/Exp_6_NS/dataset/McWilliams2d_fp32_128x128_N1280_Re5000_T100.pt'
+
+
+
+loggings:
+  TurbL1:
+    backbone: 'TurbL1_0519_McWilliams2d_ablation'
+    log_dir: '/jizhicfs/easyluwu/ocean_project/NeurIPS_2025_wuhao/ablation_logs'
+    checkpoint_dir: '/jizhicfs/easyluwu/ocean_project/NeurIPS_2025_wuhao/ablation_checkpoints'
+    result_dir: '/jizhicfs/easyluwu/ocean_project/NeurIPS_2025_wuhao/ablation_results'
+
+  TurbL1_wo_HDS:
+    backbone: 'TurbL1_wo_HDS_McWilliams2d_ablation'
+    log_dir: '/jizhicfs/easyluwu/ocean_project/NeurIPS_2025_wuhao/ablation_logs'
+    checkpoint_dir: '/jizhicfs/easyluwu/ocean_project/NeurIPS_2025_wuhao/ablation_checkpoints'
+    result_dir: '/jizhicfs/easyluwu/ocean_project/NeurIPS_2025_wuhao/ablation_results'
+
+  TurbL1_wo_MG:
+    backbone: 'TurbL1_wo_MG_McWilliams2d_ablation'
+    log_dir: '/jizhicfs/easyluwu/ocean_project/NeurIPS_2025_wuhao/ablation_logs'
+    checkpoint_dir: '/jizhicfs/easyluwu/ocean_project/NeurIPS_2025_wuhao/ablation_checkpoints'
+    result_dir: '/jizhicfs/easyluwu/ocean_project/NeurIPS_2025_wuhao/ablation_results'
+
+  HighFrequencyOnlyTurbL1:
+    backbone: 'HighFrequencyOnlyTurbL1_McWilliams2d_ablation_exp1'
+    log_dir: '/jizhicfs/easyluwu/ocean_project/NeurIPS_2025_wuhao/ablation_logs'
+    checkpoint_dir: '/jizhicfs/easyluwu/ocean_project/NeurIPS_2025_wuhao/ablation_checkpoints'
+    result_dir: '/jizhicfs/easyluwu/ocean_project/NeurIPS_2025_wuhao/ablation_results'
+
+  LowFrequencyOnlyTurbL1:
+    backbone: 'LowFrequencyOnlyTurbL1_McWilliams2d_ablation_exp1'
+    log_dir: '/jizhicfs/easyluwu/ocean_project/NeurIPS_2025_wuhao/ablation_logs'
+    checkpoint_dir: '/jizhicfs/easyluwu/ocean_project/NeurIPS_2025_wuhao/ablation_checkpoints'
+    result_dir: '/jizhicfs/easyluwu/ocean_project/NeurIPS_2025_wuhao/ablation_results'

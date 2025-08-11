@@ -1,0 +1,413 @@
+selected_model: 'CNO'
+
+models:  
+
+  TurbL1:
+    parameters:
+      shape_in: [1, 1, 128, 128] # T C H W
+      spatial_hidden_dim: 128
+      output_channels: 1
+      temporal_hidden_dim: 256
+      num_spatial_layers: 4
+      num_temporal_layers: 8
+      
+  FNO:
+    parameters:
+      modes1: 16
+      modes2: 16
+      width: 64
+      C_in: 1       
+      C_out: 1     
+
+  SimVP:
+    parameters:
+      shape_in: [1, 1, 128, 128]
+      hid_S: 64
+      hid_T: 128
+      output_dim: 1
+      
+  CNO:
+    parameters:
+      in_dim: 1
+      in_size_h: 128
+      in_size_w: 128
+      N_layers: 4
+      N_res: 1
+      N_res_neck: 6
+      channel_multiplier: 32
+      conv_kernel: 3
+      cutoff_den: 2.0001
+      filter_size: 6
+      lrelu_upsampling: 2
+      half_width_mult: 0.8
+      radial: False
+      batch_norm: True
+      out_dim: 1
+      out_size_h: 1
+      out_size_w: 1
+      expand_input: False
+      latent_lift_proj_dim: 64
+      add_inv: True
+      activation: 'cno_lrelu'
+
+  MGNO:
+    parameters:
+      num_layer: 6
+      out_channel: 1
+      in_channel: 1
+      num_iteration: [[1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1]]
+      output_dim: 1
+      height: 128
+      width: 128
+
+  LSM:
+    parameters:
+      in_dim: 1                     
+      out_dim: 1
+      d_model: 64                   
+      num_token: 4                  
+      num_basis: 16                
+      patch_size: '4,4'             
+      padding: '0,0'               
+
+
+  U_net:
+    parameters:
+      input_channels: 1   
+      output_channels: 1  
+      kernel_size: 3     
+      dropout_rate: 0.5
+
+  ResNet:
+    parameters:
+      input_channels: 1   
+      output_channels: 1  
+      dropout_rate: 0.5
+
+  ViT:
+    parameters:
+      img_size: 128   
+      patch_size: 4  
+      in_c: 1
+      out_chans: 1
+      embed_dim: 256
+      depth: 1
+      num_heads: 1
+      mlp_ratio: 4.0
+
+
+  PastNet:
+    parameters:
+      shape_in: [1, 1, 128, 128]   
+      hid_T: 256
+      N_T: 8
+      incep_ker: [3, 5, 7, 11]
+      groups: 8
+      res_units: 32
+      res_layers: 2
+      embedding_nums: 512
+      embedding_dim: 64
+
+  ConvLSTM:
+    parameters:
+      input_dim: 1
+      hidden_dim: [64, 64]
+      num_layers: 2
+      batch_first: True
+
+  Kno:
+    parameters:
+      input_channels: 1
+      output_channels: 1
+      op_size: 128
+      modes_x: 10
+      modes_y: 10
+      decompose: 6
+      linear_type: True
+      normalization: False
+
+trainings:
+  TurbL1:
+    batch_size: 20
+    num_epochs: 500
+    learning_rate: 0.001
+    seed: 42
+    parallel_method: 'DistributedDataParallel'
+
+  FNO:
+    batch_size: 1
+    num_epochs: 500
+    learning_rate: 0.001
+    seed: 42
+    parallel_method: 'DataParallel'
+
+  Kno:
+    batch_size: 500
+    num_epochs: 500
+    learning_rate: 0.001
+    seed: 42
+    parallel_method: 'DataParallel'
+    
+  SimVP:
+    batch_size: 20
+    num_epochs: 500
+    learning_rate: 0.001
+    seed: 42
+    parallel_method: 'DistributedDataParallel'
+
+  CNO:
+    batch_size: 20
+    num_epochs: 500 
+    learning_rate: 0.001
+    seed: 42
+    parallel_method: 'DistributedDataParallel'
+
+  MGNO:
+    batch_size: 20
+    num_epochs: 500 
+    learning_rate: 0.0005
+    seed: 42
+    parallel_method: 'DistributedDataParallel'
+
+  LSM:
+    batch_size: 20
+    num_epochs: 500 
+    learning_rate: 0.001
+    seed: 42
+    parallel_method: 'DistributedDataParallel'
+
+  U_net:
+    batch_size: 20
+    num_epochs: 500 
+    learning_rate: 0.001
+    seed: 42
+    parallel_method: 'DistributedDataParallel'
+
+  ResNet:
+    batch_size: 20
+    num_epochs: 500 
+    learning_rate: 0.001
+    seed: 42
+    parallel_method: 'DistributedDataParallel'
+
+  ViT:
+    batch_size: 20
+    num_epochs: 500 
+    learning_rate: 0.001
+    seed: 42
+    parallel_method: 'DistributedDataParallel'
+
+  PastNet:
+    batch_size: 20
+    num_epochs: 500 
+    learning_rate: 0.001
+    seed: 42
+    parallel_method: 'DistributedDataParallel'
+
+  ConvLSTM:
+    batch_size: 20
+    num_epochs: 500 
+    learning_rate: 0.001
+    seed: 42
+    parallel_method: 'DistributedDataParallel'
+    
+datas:
+  TurbL1:
+    input_length: 1
+    target_length: 1
+    variables_input: [0]
+    variables_output: [0]
+    downsample_factor: 1
+    data_path: '/jizhicfs/easyluwu/ocean_project/NPJ_baselines/Exp_6_NS/dataset/McWilliams2d_fp32_128x128_N1280_Re5000_T100.pt'
+
+  FNO:
+    input_length: 1
+    target_length: 1
+    variables_input: [0]
+    variables_output: [0]
+    downsample_factor: 1
+    data_path: '/jizhicfs/easyluwu/ocean_project/NPJ_baselines/Exp_6_NS/dataset/McWilliams2d_fp32_128x128_N1280_Re5000_T100.pt'
+    
+
+  SimVP:
+    input_length: 1
+    target_length: 1
+    variables_input: [0]
+    variables_output: [0]
+    downsample_factor: 1
+    data_path: '/jizhicfs/easyluwu/ocean_project/NPJ_baselines/Exp_6_NS/dataset/McWilliams2d_fp32_128x128_N1280_Re5000_T100.pt'
+
+  CNO:
+    input_length: 1
+    target_length: 1
+    variables_input: [0]
+    variables_output: [0]
+    downsample_factor: 1
+    data_path: '/jizhicfs/easyluwu/ocean_project/NPJ_baselines/Exp_6_NS/dataset/McWilliams2d_fp32_128x128_N1280_Re5000_T100.pt'
+
+  MGNO:
+    input_length: 1
+    target_length: 1
+    variables_input: [0]
+    variables_output: [0]
+    downsample_factor: 1
+    data_path: '/jizhicfs/easyluwu/ocean_project/NPJ_baselines/Exp_6_NS/dataset/McWilliams2d_fp32_128x128_N1280_Re5000_T100.pt'
+
+  LSM:
+    input_length: 1
+    target_length: 1
+    variables_input: [0]
+    variables_output: [0]
+    downsample_factor: 1
+    data_path: '/jizhicfs/easyluwu/ocean_project/NPJ_baselines/Exp_6_NS/dataset/McWilliams2d_fp32_128x128_N1280_Re5000_T100.pt'
+
+  PastNet:
+    input_length: 1
+    target_length: 1
+    variables_input: [0, 1]
+    variables_output: [0, 1]
+    downsample_factor: 4
+    data_path: '/jizhicfs/easyluwu/ocean_project/NPJ_baselines/Exp_6_NS/dataset/McWilliams2d_fp32_128x128_N1280_Re5000_T100.pt'
+
+  ResNet:
+    input_length: 1
+    target_length: 1
+    variables_input: [0, 1]
+    variables_output: [0, 1]
+    downsample_factor: 4
+    data_path: '/jizhicfs/easyluwu/ocean_project/NPJ_baselines/Exp_6_NS/dataset/McWilliams2d_fp32_128x128_N1280_Re5000_T100.pt'
+
+  U_net:
+    input_length: 1
+    target_length: 1
+    variables_input: [0]
+    variables_output: [0]
+    downsample_factor: 1
+    data_path: '/jizhicfs/easyluwu/ocean_project/NPJ_baselines/Exp_6_NS/dataset/McWilliams2d_fp32_128x128_N1280_Re5000_T100.pt'
+
+
+  ViT:
+    input_length: 1
+    target_length: 1
+    variables_input: [0]
+    variables_output: [0]
+    downsample_factor: 1
+    data_path: '/jizhicfs/easyluwu/ocean_project/NPJ_baselines/Exp_6_NS/dataset/McWilliams2d_fp32_128x128_N1280_Re5000_T100.pt'
+
+  PastNet:
+    input_length: 1
+    target_length: 1
+    variables_input: [0]
+    variables_output: [0]
+    downsample_factor: 1
+    data_path: '/jizhicfs/easyluwu/ocean_project/NPJ_baselines/Exp_6_NS/dataset/McWilliams2d_fp32_128x128_N1280_Re5000_T100.pt'
+
+  ConvLSTM:
+    input_length: 1
+    target_length: 1
+    variables_input: [0]
+    variables_output: [0]
+    downsample_factor: 1
+    data_path: '/jizhicfs/easyluwu/ocean_project/NPJ_baselines/Exp_6_NS/dataset/McWilliams2d_fp32_128x128_N1280_Re5000_T100.pt'
+
+  Kno:
+    input_length: 1
+    target_length: 1
+    variables_input: [0]
+    variables_output: [0]
+    downsample_factor: 1
+    data_path: '/jizhicfs/easyluwu/ocean_project/NPJ_baselines/Exp_6_NS/dataset/McWilliams2d_fp32_128x128_N1280_Re5000_T100.pt'
+
+
+loggings:
+
+  TurbL1:
+    backbone: 'TurbL1_0511_McWilliams2d'
+    log_dir: '/jizhicfs/easyluwu/ocean_project/NeurIPS_2025_wuhao/logs'
+    checkpoint_dir: '/jizhicfs/easyluwu/ocean_project/NeurIPS_2025_wuhao/checkpoints'
+    result_dir: '/jizhicfs/easyluwu/ocean_project/NeurIPS_2025_wuhao/results'
+
+  TurbL1_V2:
+    backbone: 'TurbL1_V2_model_rbc_1228_single_step'
+    log_dir: '/jizhicfs/easyluwu/ocean_project/NeurIPS_2025_wuhao/logs'
+    checkpoint_dir: '/jizhicfs/easyluwu/ocean_project/NeurIPS_2025_wuhao/checkpoints'
+    result_dir: '/jizhicfs/easyluwu/ocean_project/NeurIPS_2025_wuhao/results'
+
+  FNO:
+    backbone: 'FNO_0511_McWilliams2d'
+    log_dir: '/jizhicfs/easyluwu/ocean_project/NeurIPS_2025_wuhao/logs'
+    checkpoint_dir: '/jizhicfs/easyluwu/ocean_project/NeurIPS_2025_wuhao/checkpoints'
+    result_dir: '/jizhicfs/easyluwu/ocean_project/NeurIPS_2025_wuhao/results'
+
+  DiT:
+    backbone: 'DiT_0511_McWilliams2d'
+    log_dir: '/jizhicfs/easyluwu/ocean_project/NeurIPS_2025_wuhao/logs'
+    checkpoint_dir: '/jizhicfs/easyluwu/ocean_project/NeurIPS_2025_wuhao/checkpoints'
+    result_dir: '/jizhicfs/easyluwu/ocean_project/NeurIPS_2025_wuhao/results'
+
+
+  SimVP:
+    backbone: 'SimVP_0511_McWilliams2d'
+    log_dir: '/jizhicfs/easyluwu/ocean_project/NeurIPS_2025_wuhao/logs'
+    checkpoint_dir: '/jizhicfs/easyluwu/ocean_project/NeurIPS_2025_wuhao/checkpoints'
+    result_dir: '/jizhicfs/easyluwu/ocean_project/NeurIPS_2025_wuhao/results'
+
+  CNO:
+    backbone: 'CNO_0511_McWilliams2d'
+    log_dir: '/jizhicfs/easyluwu/ocean_project/NeurIPS_2025_wuhao/logs'
+    checkpoint_dir: '/jizhicfs/easyluwu/ocean_project/NeurIPS_2025_wuhao/checkpoints'
+    result_dir: '/jizhicfs/easyluwu/ocean_project/NeurIPS_2025_wuhao/results'
+
+  MGNO:
+    backbone: 'MGNO_0511_McWilliams2d'
+    log_dir: '/jizhicfs/easyluwu/ocean_project/NeurIPS_2025_wuhao/logs'
+    checkpoint_dir: '/jizhicfs/easyluwu/ocean_project/NeurIPS_2025_wuhao/checkpoints'
+    result_dir: '/jizhicfs/easyluwu/ocean_project/NeurIPS_2025_wuhao/results'
+
+  LSM:
+    backbone: 'LSM_0511_McWilliams2d'
+    log_dir: '/jizhicfs/easyluwu/ocean_project/NeurIPS_2025_wuhao/logs'
+    checkpoint_dir: '/jizhicfs/easyluwu/ocean_project/NeurIPS_2025_wuhao/checkpoints'
+    result_dir: '/jizhicfs/easyluwu/ocean_project/NeurIPS_2025_wuhao/results'
+
+  PastNet:
+    backbone: 'PastNet_0511_McWilliams2d'
+    log_dir: '/jizhicfs/easyluwu/ocean_project/NeurIPS_2025_wuhao/logs'
+    checkpoint_dir: '/jizhicfs/easyluwu/ocean_project/NeurIPS_2025_wuhao/checkpoints'
+    result_dir: '/jizhicfs/easyluwu/ocean_project/NeurIPS_2025_wuhao/results'
+
+  ResNet:
+    backbone: 'ResNet_0511_McWilliams2d'
+    log_dir: '/jizhicfs/easyluwu/ocean_project/NeurIPS_2025_wuhao/logs'
+    checkpoint_dir: '/jizhicfs/easyluwu/ocean_project/NeurIPS_2025_wuhao/checkpoints'
+    result_dir: '/jizhicfs/easyluwu/ocean_project/NeurIPS_2025_wuhao/results'
+
+  U_net:
+    backbone: 'U_net_0511_McWilliams2d'
+    log_dir: '/jizhicfs/easyluwu/ocean_project/NeurIPS_2025_wuhao/logs'
+    checkpoint_dir: '/jizhicfs/easyluwu/ocean_project/NeurIPS_2025_wuhao/checkpoints'
+    result_dir: '/jizhicfs/easyluwu/ocean_project/NeurIPS_2025_wuhao/results'
+
+  ViT:
+    backbone: 'ViT_0511_McWilliams2d'
+    log_dir: '/jizhicfs/easyluwu/ocean_project/NeurIPS_2025_wuhao/logs'
+    checkpoint_dir: '/jizhicfs/easyluwu/ocean_project/NeurIPS_2025_wuhao/checkpoints'
+    result_dir: '/jizhicfs/easyluwu/ocean_project/NeurIPS_2025_wuhao/results'
+
+  PastNet:
+    backbone: 'PastNet_0511_McWilliams2d'
+    log_dir: '/jizhicfs/easyluwu/ocean_project/NeurIPS_2025_wuhao/logs'
+    checkpoint_dir: '/jizhicfs/easyluwu/ocean_project/NeurIPS_2025_wuhao/checkpoints'
+    result_dir: '/jizhicfs/easyluwu/ocean_project/NeurIPS_2025_wuhao/results'
+
+  ConvLSTM:
+    backbone: 'ConvLSTM_0511_McWilliams2d'
+    log_dir: '/jizhicfs/easyluwu/ocean_project/NeurIPS_2025_wuhao/logs'
+    checkpoint_dir: '/jizhicfs/easyluwu/ocean_project/NeurIPS_2025_wuhao/checkpoints'
+    result_dir: '/jizhicfs/easyluwu/ocean_project/NeurIPS_2025_wuhao/results'
+
+  Kno:
+    backbone: 'KNO_0511_McWilliams2d'
+    log_dir: '/jizhicfs/easyluwu/ocean_project/NeurIPS_2025_wuhao/logs'
+    checkpoint_dir: '/jizhicfs/easyluwu/ocean_project/NeurIPS_2025_wuhao/checkpoints'
+    result_dir: '/jizhicfs/easyluwu/ocean_project/NeurIPS_2025_wuhao/results'
